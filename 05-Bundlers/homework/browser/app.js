@@ -1,7 +1,6 @@
-(function () {
-
-  var whiteboard = window.whiteboard;
-  var socket = window.io(window.location.origin);
+  var whiteboard = require('./whiteboard.js');
+  var ioSocket = require('socket.io-client');
+  var socket = ioSocket(window.location.origin);
 
   socket.on('connect', function () {
     console.log('Connected!');
@@ -26,4 +25,4 @@
     socket.emit('draw', start, end, color);
   });
 
-})();
+
